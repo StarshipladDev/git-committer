@@ -18,15 +18,22 @@ namespace GitComitter
         {
 
             string jsonConfigPath = "Assets/Config_JSON/gitconfig.json";
-            string markdownFilePath = "README.md";
+            string markdownFilePath = @"..\..\..\README.md";
 
             if (!File.Exists(jsonConfigPath))
             {
                 Console.WriteLine("Git credentials file not found.");
                 return;
             }
+            if (!File.Exists(markdownFilePath))
+            {
+                Console.WriteLine("Git credentials file not found.");
+                return;
+            }
 
             string jsonContent = File.ReadAllText(jsonConfigPath);
+            string markdownContent = File.ReadAllText(markdownFilePath);
+
             var credentials = JsonConvert.DeserializeObject<cfg_GitCredentials>(jsonContent);
 
             if (credentials == null || string.IsNullOrEmpty(credentials.Username) || string.IsNullOrEmpty(credentials.Token))
