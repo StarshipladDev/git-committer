@@ -1,12 +1,13 @@
 ﻿using GitComitter.Root.Config;
 using System;
 using System.Diagnostics;
+using System.Threading.Tasks;
 
 namespace GitComitter.Root.Git
 {
     public class GitHandler : IGitHandler
     {
-        public void CommitAndPushChanges(cfg_GitCredentials credentials)
+        public async Task<int> CommitAndPushChanges(cfg_GitCredentials credentials)
         {
             RunGitCommand("add .");
             RunGitCommand("commit -m \"Updated markdown file\"");
@@ -15,11 +16,12 @@ namespace GitComitter.Root.Git
             if (string.IsNullOrEmpty(remoteUrl))
             {
                 Console.WriteLine("Failed to get remote repository URL.");
-                return;
+                return 0;
             }
 
-            string authUrl = remoteUrl.Replace("https://", $"https://{credentials.Username}:{credentials.Token}@");
+            string authUrl = remoteUrl.Replace("https://", $"https://{credentials.Username}:{credentials.Github_token}@");
             RunGitCommand($"push {authUrl} main");
+            return 1;
         }
 
         public string GetRemoteUrl()
