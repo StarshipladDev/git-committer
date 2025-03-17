@@ -1,4 +1,8 @@
 {
-  "Token": "Put token here",
-  "Username" :  "Temp_Username"
+  "Username": "",
+  "Github_token": "",
+  "Owner": "",
+  "Repo": "",
+  "Branch": "",
+  "File_path": ""
 }
