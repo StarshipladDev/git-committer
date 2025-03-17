@@ -10,7 +10,7 @@ namespace GitComitter.Root.Git
 {
     public interface IGitHandler
     {
-        void CommitAndPushChanges(cfg_GitCredentials credentials);
+        Task<int> CommitAndPushChanges(cfg_GitCredentials credentials);
         string GetRemoteUrl();
         string RunGitCommand(string command);
     }

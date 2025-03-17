@@ -1,4 +1,5 @@
-﻿using GitComitter.Root.Config;
+﻿using GitComitter.Root.Application;
+using GitComitter.Root.Config;
 using GitComitter.Root.Git;
 using Newtonsoft.Json;
 using Ninject;
@@ -12,11 +13,10 @@ using System.Threading.Tasks;
 
 namespace GitComitter
 {
-    internal class Program
+    public class Program
     {
-        static void Main(string[] args)
+        public static void Main()
         {
-
             string jsonConfigPath = "Assets/Config_JSON/gitconfig.json";
             string markdownFilePath = @"..\..\..\README.md";
 
@@ -36,7 +36,7 @@ namespace GitComitter
 
             var credentials = JsonConvert.DeserializeObject<cfg_GitCredentials>(jsonContent);
 
-            if (credentials == null || string.IsNullOrEmpty(credentials.Username) || string.IsNullOrEmpty(credentials.Token))
+            if (credentials == null || string.IsNullOrEmpty(credentials.Username) || string.IsNullOrEmpty(credentials.Github_token))
             {
                 Console.WriteLine("Invalid credentials.");
                 return;
@@ -49,8 +49,8 @@ namespace GitComitter
 
             // Resolve the dependency
             var gitManager = kernel.Get<IGitHandler>();
-
-            gitManager.CommitAndPushChanges(credentials);
+            Commiter comit_machine = new Commiter(credentials, gitManager);
+            comit_machine.UpdateAndCommitReadmeFile(markdownFilePath).Wait();
 
         }
     }

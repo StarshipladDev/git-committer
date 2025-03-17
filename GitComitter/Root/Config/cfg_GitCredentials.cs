@@ -8,7 +8,11 @@ namespace GitComitter.Root.Config
 {
     public class cfg_GitCredentials
     {
-        public string Token {  get; set; }
         public string Username { get; set; }
+        public string Github_token { get; set; }
+        public string Owner { get; set; }
+        public string Repo { get; set; }
+        public string Branch { get; set; }
+        public string File_path { get; set; }
     }
 }

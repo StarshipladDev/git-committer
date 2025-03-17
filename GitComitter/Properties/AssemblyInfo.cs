@@ -6,13 +6,13 @@ using System.Runtime.InteropServices;
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
 [assembly: AssemblyTitle("GitComitter")]
-[assembly: AssemblyDescription("")]
-[assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("")]
+[assembly: AssemblyDescription("This project is a **C# Service Console Application** that automatically updates this README file with a hydrated commit history. The goal is to **simulate an active commit history**, demonstrating a well-maintained project while encouraging recruiters to engage in one-on-one conversations about personal projects.  ")]
+[assembly: AssemblyConfiguration("Development")]
+[assembly: AssemblyCompany("Signet Designs")]
 [assembly: AssemblyProduct("GitComitter")]
 [assembly: AssemblyCopyright("Copyright ©  2025")]
-[assembly: AssemblyTrademark("")]
-[assembly: AssemblyCulture("")]
+[assembly: AssemblyTrademark("Signet Designs")]
+[assembly: AssemblyCulture("")] //Should always be empty
 
 // Setting ComVisible to false makes the types in this assembly not visible
 // to COM components.  If you need to access a type in this assembly from
@@ -29,5 +29,5 @@ using System.Runtime.InteropServices;
 //      Build Number
 //      Revision
 //
-[assembly: AssemblyVersion("1.0.0.0")]
-[assembly: AssemblyFileVersion("1.0.0.0")]
+[assembly: AssemblyVersion("0.2.0.0")]
+[assembly: AssemblyFileVersion("0.2.0.0")]
