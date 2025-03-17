@@ -6,7 +6,8 @@
 # User-specific files
 
 gitconfig.json
-
+**/gitconfig.json
+Config_Json/gitconfig.json
 # Default files
 *.rsuser
 *.suo
